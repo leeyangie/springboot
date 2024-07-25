@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: house2
+  datasource:
+    url: jdbc:oracle:thin:@localhost:1521:xe
+    driver-class-name: oracle.jdbc.OracleDriver
+    username: C##BOOT
+    password: BOOT
+
+
+server:
+  port: 80
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+      
+mybatis:
+  type-aliases-package: com.kh.house.product.model.vo
+  mapper-locations: classpath:mapper/*.xmlspring.application.name=house2

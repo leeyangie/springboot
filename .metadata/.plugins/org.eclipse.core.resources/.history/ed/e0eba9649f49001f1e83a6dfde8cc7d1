@@ -1,0 +1,5 @@
+package com.kh.house.product.model.service;
+
+public class ProductServiceImpl implements ProductService {
+
+}

@@ -1,0 +1,49 @@
+package com.kh.house.product.model.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.stereotype.Service;
+
+import com.kh.house.product.model.dao.ProductMapper;
+import com.kh.house.product.model.dao.ProductRepository;
+import com.kh.house.product.model.vo.Attachment;
+import com.kh.house.product.model.vo.Product;
+
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
+public class ProductServiceImpl implements ProductService {
+	
+	private ProductMapper productMapper;
+
+	@Override
+	public int save(Product house, Attachment at) {
+		return 0;
+	}
+	
+	
+	
+	
+	/*
+	 
+	private final ProductRepository productRepository;
+	
+	@Override
+	public Product save(Product product) {
+		return productRepository.save(product); 
+	}
+
+	@Override
+	public List<Product> findAll() {
+		return productRepository.findAll();
+	}
+
+	@Override
+	public Optional<Product> findById(int id) {
+		return productRepository.findById(id);
+	}
+	*/
+
+}

@@ -1,0 +1,10 @@
+package com.kh.house.product.model.service;
+
+import com.kh.house.product.model.vo.Product;
+
+public interface ProductService {
+	
+	Product save(Product product);
+	
+
+}

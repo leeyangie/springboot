@@ -1,0 +1,8 @@
+package com.kh.house.product.model.dao;
+
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+
+@EnableJpaRepositories
+public interface ProductRepository {
+
+}

@@ -1,0 +1,23 @@
+package com.kh.house.product.model.service;
+
+import org.springframework.stereotype.Service;
+
+import com.kh.house.product.model.dao.ProductMapper;
+import com.kh.house.product.model.dao.ProductRepository;
+import com.kh.house.product.model.vo.Product;
+
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
+public class ProductServiceImpl implements ProductService {
+	
+	private ProductMapper productMapper;
+	private final ProductRepository productRepository;
+
+	@Override
+	public Product save(Product product) {
+		return productRepository.save(product); 
+	}
+
+}

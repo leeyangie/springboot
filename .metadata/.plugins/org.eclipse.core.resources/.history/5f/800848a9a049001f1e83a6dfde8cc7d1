@@ -1,0 +1,12 @@
+package com.kh.house.product.model.service;
+
+import org.springframework.stereotype.Service;
+
+import com.kh.house.product.model.dao.ProductMapper;
+
+@Service
+public class ProductServiceImpl implements ProductService {
+	
+	private ProductMapper productMapper;
+
+}

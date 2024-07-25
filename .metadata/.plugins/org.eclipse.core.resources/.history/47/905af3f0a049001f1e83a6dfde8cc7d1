@@ -1,0 +1,5 @@
+package com.kh.house.resposnse.model.vo;
+
+public class ResponseData {
+
+}

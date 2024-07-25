@@ -1,0 +1,28 @@
+package com.kh.house.product.model.vo;
+
+import java.time.LocalDateTime;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@ToString
+public class Product {
+	
+	private int houseNo;
+	
+	private String title;
+	private String rateCount;
+	private String type;
+	private LocalDateTime createDate; 
+
+
+}

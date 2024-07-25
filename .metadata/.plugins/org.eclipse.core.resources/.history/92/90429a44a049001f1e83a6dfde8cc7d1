@@ -1,0 +1,5 @@
+package com.kh.house.product.model.vo;
+
+public class Product {
+
+}
