@@ -2,12 +2,19 @@ package com.kh.house.product.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.List;
 
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -56,10 +63,15 @@ public class ProductController {
 			
 			int result = productService.save(house, at);
 			
+			ResponseData rd = ResponseData.builder()
+										  .message("성공")
+										  .responseData(result)
+										  .build();
+			return ResponseEntity.status(HttpStatus.OK).body(rd);
 			
 		}
 		
-		return null;
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
 	}
 	
 	
@@ -87,6 +99,25 @@ public class ProductController {
 		
 		return savePath + changeName;
 	}
+	
+	@GetMapping("/{type}")
+	public ResponseEntity<ResponseData> findAll(@PathVariable("type") String type) {
+		List<Product> homes = productService.findAll(type);
+		ResponseData rd = ResponseData.builder()
+									  .message(type + "조회 성공!")
+									  .responseData(homes)
+									  .build();
+		return ResponseEntity.ok(rd);
+	}
+	
+	@GetMapping("/images/{filename}")
+	public Resource showImage(@PathVariable("filename") String fileName) throws MalformedURLException {
+			return new UrlResource("file:images/" + fileName);
+	}
+	
+	
+	
+	
 	
 	/*
 	@PostMapping

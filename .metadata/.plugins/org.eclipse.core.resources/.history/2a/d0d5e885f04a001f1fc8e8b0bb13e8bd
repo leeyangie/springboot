@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.kh.house.product.model.dao.ProductMapper">
+    
+    <insert id="saveHouse" parameterType="Product">
+    	INSERT
+    	  INTO
+    	  		TB_HOUSE
+    	  		(
+    	  		HOUSE_NO,
+    	  		TITLE,
+    	  		RATE_COUNT,
+    	  		TYPE,
+    	  		CREATE_DATE
+    	  		)
+    	VALUES
+    			(
+    			SEQ_HOUSE.NEXTVAL,
+    			#{title},
+    			#{rate},
+    			#{type},
+    			#{createDate}
+    			)
+    	<selectKey resultType="_int" order="AFTER" keyProperty="houseNo">
+    		SELECT SEQ_HOUSE.CURRVAL FROM DUAL
+    	</selectKey>
+    
+    </insert>
+    
+    <insert id="saveFile" parameterType="Attachment"> <!-- 클래스명을 별칭으로 쓸수 있음 -->
+    
+    	INSERT
+    	  INTO
+    	  		TB_FILE
+    	  		(
+    	  		FILE_NO,
+    	  		REF_HOUSE_NO,
+    	  		ORIGIN_NAME,
+    	  		CHANGE_NAME
+    	VALUES
+    			(
+    			SEQ_FILE.NEXTVAL,
+    			SEQ_HOUSE.CURRVAL,
+    			#{originName},
+    			
+    			)
+    	  		
+    	  		)
+    	  		
+    	  		<!-- NEXVAL수행에 성공한 값 : CURRVAL -->
+    	  		
+    </insert>
+    
+    
+    
+    
+</mapper>

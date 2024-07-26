@@ -9,6 +9,8 @@ import com.kh.house.product.model.vo.Product;
 public interface ProductService {
 
 	int save(Product house, Attachment at);
+
+	List<Product> findAll(String type);
 	
 
 	

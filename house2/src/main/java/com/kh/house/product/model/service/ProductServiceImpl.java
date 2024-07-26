@@ -1,11 +1,14 @@
 package com.kh.house.product.model.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.kh.house.product.model.dao.ProductMapper;
 import com.kh.house.product.model.vo.Attachment;
 import com.kh.house.product.model.vo.Product;
 
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -13,14 +16,22 @@ import lombok.RequiredArgsConstructor;
 public class ProductServiceImpl implements ProductService {
 	
 	private ProductMapper productMapper;
-
+	
+	@Transactional
 	@Override
 	public int save(Product house, Attachment at) {
+		try {
+			saveHouse(house);
+			at.setRefHouseNo(house.getHouseNo());
+			saveFile(at);
+			
+			return 1;
+		} catch(Exception e) {
+			return 0;
+		}
 		
-		saveHouse(house);
-		saveFile(at);
 		
-		return 0;
+		
 	}
 	
 	public void saveHouse (Product house) {
@@ -29,6 +40,12 @@ public class ProductServiceImpl implements ProductService {
 	
 	public void saveFile(Attachment at) {
 		productMapper.saveFile(at);
+	}
+
+	@Override
+	public List<Product> findAll(String type) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	/*
